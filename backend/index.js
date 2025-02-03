@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors'); // Import CORS
 const userRoutes = require('./routes/userRoutes');
 const authRoutes = require('./routes/authRoutes');
 const seatRoutes = require('./routes/seatRoutes'); // Import seat routes
@@ -7,6 +8,7 @@ const seatRoutes = require('./routes/seatRoutes'); // Import seat routes
 const app = express();
 
 // Middleware
+app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // For parsing JSON request bodies
 app.use(morgan('dev')); // Log HTTP requests in the console
 
